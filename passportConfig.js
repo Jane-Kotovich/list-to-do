@@ -68,10 +68,6 @@ function initialize(passport) {
         if (err) {
           return done(err);
         }
-        console.log(`ID is ${results.rows[0].user_id}`);
-        console.log(
-          `Name is ${results.rows[0].firstname} and surname ${results.rows[0].secondname}`
-        );
 
         return done(null, results.rows[0]);
       }
