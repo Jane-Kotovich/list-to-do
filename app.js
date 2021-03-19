@@ -25,6 +25,14 @@ app.use("/routes/index", indexRouter);
 const createnewRouter = require("./routes/createnew");
 app.use("/routes/createnew", createnewRouter);
 
+/* signin route */
+const loginRouter = require("./routes/login");
+app.use("/routes/login", loginRouter);
+
+/* signup route */
+const signupRouter = require("./routes/signup");
+app.use("/routes/signup", signupRouter);
+
 /* Run App */
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
@@ -32,3 +40,5 @@ app.listen(PORT, () => {
 
 app.use("/", indexRouter);
 app.use("/create", createnewRouter);
+app.use("/login", loginRouter);
+app.use("/signup", signupRouter);
