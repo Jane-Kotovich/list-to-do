@@ -21,9 +21,14 @@ const PORT = process.env.PORT;
 const indexRouter = require("./routes/index");
 app.use("/routes/index", indexRouter);
 
+/* createNewItem - create to-do */
+const createNewItem = require("./routes/createNewItem");
+app.use("/routes/createNewItem", createNewItem);
+
 /* Run App */
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
 
 app.use("/", indexRouter);
+app.use("/create", createNewItemRouter);
