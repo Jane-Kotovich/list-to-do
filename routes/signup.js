@@ -99,7 +99,8 @@ router.post("/", async (req, res) => {
                     },
                   });
                   const mailOptions = {
-                    from: '"Movies" <jane.kotovich.test@gmail.com>',
+                    from:
+                      '"To-do list confirmation" <jane.kotovich.test@gmail.com>',
                     to: `${email}`,
                     subject: "Please confirm your email address",
                     html: `

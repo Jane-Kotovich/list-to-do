@@ -32,10 +32,19 @@ router.post("/", (req, res) => {
   const itemDone = false;
   const userId = req.user.user_id;
   console.log(newItem, itemDone, userId);
-
-  //will write sql quiry to insert new item in to_do_list
-  //redirect to index page
-  res.send("Yeah");
+  pool.query(
+    `INSERT INTO list_to_do (user_id,item_to_do, done) VALUES ($1,$2,$3)`,
+    [userId, newItem, itemDone],
+    (err, results) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log(results.rows);
+        eq.flash("success_msg", "You added new item!");
+        res.redirect("/");
+      }
+    }
+  );
 });
 
 /* Export router to app.js */
