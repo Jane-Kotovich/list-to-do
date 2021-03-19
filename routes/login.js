@@ -4,7 +4,7 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const session = require("express-session");
 const passport = require("passport");
-const initializePassport = require("../passportConfig");
+const initializePassport = require("../passportConfig.js");
 initializePassport(passport);
 
 /* Set up application and app port */
