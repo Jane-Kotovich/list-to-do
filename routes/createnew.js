@@ -10,6 +10,13 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
+  const newItem = req.body.item_to_do;
+  const itemDone = false;
+  const userId = req.user;
+  console.log(newItem, itemDone, userId);
+
+  //will write sql quiry to insert new item in to_do_list
+  //redirect to index page
   res.send("Yeah");
 });
 
