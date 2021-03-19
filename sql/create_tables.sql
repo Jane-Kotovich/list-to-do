@@ -10,6 +10,18 @@ CREATE TABLE IF NOT EXISTS users (
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
+DROP TABLE IF EXISTS email_confirmation;
+
+CREATE TABLE IF NOT EXISTS email_confirmation (
+    hash_id SERIAL PRIMARY KEY,
+    email VARCHAR(50) NOT NULL UNIQUE,
+    hash VARCHAR(60) NOT NULL,
+
+    FOREIGN KEY(email) 
+      REFERENCES users(email)
+      ON DELETE CASCADE
+);
+
 DROP TABLE IF EXISTS list_to_do;
 CREATE TABLE IF NOT EXISTS list_to_do (
   item_id SERIAL PRIMARY KEY,
