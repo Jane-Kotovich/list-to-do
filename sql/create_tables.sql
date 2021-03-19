@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 DROP TABLE IF EXISTS list_to_do;
-CREATE TABLE IF NOT EXISTS ratings (
+CREATE TABLE IF NOT EXISTS list_to_do (
   item_id SERIAL PRIMARY KEY,
   user_id INT NOT NULL,
   item_to_do TEXT,

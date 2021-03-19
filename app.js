@@ -22,8 +22,8 @@ const indexRouter = require("./routes/index");
 app.use("/routes/index", indexRouter);
 
 /* createNewItem - create to-do */
-const createNewItem = require("./routes/createNewItem");
-app.use("/routes/createNewItem", createNewItem);
+const createnewRouter = require("./routes/createnew");
+app.use("/routes/createnew", createnewRouter);
 
 /* Run App */
 app.listen(PORT, () => {
@@ -31,4 +31,4 @@ app.listen(PORT, () => {
 });
 
 app.use("/", indexRouter);
-app.use("/create", createNewItemRouter);
+app.use("/create", createnewRouter);

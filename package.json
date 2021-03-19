@@ -7,7 +7,7 @@
     "start": "node app.js",
     "dev": "nodemon -e js,ejs,css,html app.js",
     "create-database": "createdb to_do_list",
-    "create-tables": "psql jane -h localhost -d to_do_list -f sql/create_users_table.sql"
+    "create-tables": "psql jane -h localhost -d to_do_list -f sql/create_tables.sql"
   },
   "author": "",
   "license": "ISC",
