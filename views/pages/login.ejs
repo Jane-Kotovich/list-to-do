@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+  </head>
+  <body>
+ 
+      <h1>Thats a login here!</h1>
+      <ul class="message_success">
+        <% if(messages.success_msg) { %>
+        <li><%= messages.success_msg %></li>
+        <% } %>
+      </ul>
+      <ul class="error">
+        <% if(messages.error) {%>
+        <li><%= messages.error %></li>
+        <% } %>
+      </ul>
+      <form action="/login" method="POST">
+        <div>
+          <input type="email" name="email" required placeholder=" " />
+          <label for="email">Email Address*</label>
+        </div>
+        <div>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            placeholder=" "
+          />
+          <label for="password">Password</label>
+          <div class="requirements">
+            Your password must be at least 6 characters as well as contain at
+            least one uppercase, one lowercase, and one number.
+          </div>
+        </div>
+        <input type="submit" value="Login" />
+        <h4>Not with us yet? <a href="/signup">Sign up here!</a></h4>
+      </form>
+    </section>
+  </body>
+</html>

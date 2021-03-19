@@ -3,15 +3,18 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const session = require("express-session");
+const crypto = require("crypto");
 const passport = require("passport");
 const initializePassport = require("../passportConfig.js");
 initializePassport(passport);
 
+/* Call database */
+const { pool } = require("../database.js");
+
+//confirmation email
+const nodemailer = require("nodemailer");
 /* Set up application and app port */
 const app = express();
-
-/* Call database */
-const database = require("../database.js");
 
 //ssessions
 app.use(

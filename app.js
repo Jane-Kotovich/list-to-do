@@ -33,6 +33,10 @@ app.use("/routes/login", loginRouter);
 const signupRouter = require("./routes/signup");
 app.use("/routes/signup", signupRouter);
 
+/* Email confirmation  */
+const emailConfRouter = require("./routes/email");
+app.use("/routes/email", emailConfRouter);
+
 /* Run App */
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
@@ -42,3 +46,4 @@ app.use("/", indexRouter);
 app.use("/create", createnewRouter);
 app.use("/login", loginRouter);
 app.use("/signup", signupRouter);
+app.use("/email", emailConfRouter);

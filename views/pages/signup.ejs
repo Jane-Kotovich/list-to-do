@@ -7,77 +7,74 @@
     <title>Sign up</title>
   </head>
   <body>
-    <header>
-      <ul>
-        <li>
-          <a href="/">
-            <div class="home_logo"><p class="head_descr">Home</p></div>
-          </a>
-        </li>
-        <li>
-          <a href="/movies">
-            <div class="movies_logo"><p class="head_descr">All movies</p></div>
-          </a>
-        </li>
-        <li>
-          <a href="/login">
-            <div class="login_logo"><p class="head_descr">Login</p></div>
-          </a>
-        </li>
-        <li>
-          <a href="/signup">
-            <div class="signup_logo"><p class="head_descr">Sign up</p></div>
-          </a>
-        </li>
-      </ul>
-    </header>
-    <section id="main">
-      <h1>Sign up</h1>
-      <ul class="error">
-          <% if(typeof errors != 'undefined') { %>
-            <% errors.forEach(error => { %>
-            <li><%= error.message %></li>
-            <% }) %>
-          <% } %>
-      </ul>
-      <form action="/signup" method="POST">
-        <div>
-            <input type="text" name="firstname" required placeholder=" " pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" />
-            <label for="firstname">First name</label>
-            <div class="requirements">
-                Please write your first name
-             </div>
+    <h1>Sign up</h1>
+    <ul class="error">
+      <% if(typeof errors != 'undefined') { %> <% errors.forEach(error => { %>
+      <li><%= error.message %></li>
+      <% }) %> <% } %>
+    </ul>
+    <form action="/signup" method="POST">
+      <div>
+        <input
+          type="text"
+          name="firstname"
+          required
+          placeholder=" "
+          pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"
+        />
+        <label for="firstname">First name</label>
+        <div class="requirements">Please write your first name</div>
+      </div>
+      <div>
+        <input
+          type="text"
+          name="secondname"
+          required
+          placeholder=" "
+          pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"
+        />
+        <label for="secondname">Second name</label>
+        <div class="requirements">Please write your second name</div>
+      </div>
+      <div>
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder=" "
+          pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+        />
+        <label for="email">Email Address*</label>
+        <div class="requirements">Please write your email</div>
+      </div>
+      <div>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+          placeholder=" "
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+        />
+        <label for="password">Password</label>
+        <div class="requirements">
+          Your password must be at least 6 characters as well as contain at
+          least one uppercase, one lowercase, and one number.
         </div>
-        <div>
-            <input type="text" name="secondname" required placeholder=" "  pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"/>
-            <label for="secondname">Second name</label>
-            <div class="requirements">
-               Please write your second name
-            </div>
-        </div>
-        <div>
-            <input type="email" name="email" required placeholder=" " pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" />
-            <label for="email">Email Address*</label>
-            <div class="requirements">
-                Please write your email
-             </div>
-        </div>
-        <div>
-            <input type="password" id="password" name="password" required placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" />
-            <label for="password">Password</label>
-                <div class="requirements">
-                    Your password must be at least 6 characters as well as contain at least one uppercase, one lowercase, and one number.
-                </div>
-        </div>
-        <div>
-            <input type="password" id="password2" name="password2" required placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" />
-            <label for="password2">Password confirmation</label>
-        </div>
-        <input type="submit" value="Sign Up" />
-        <h4>Already sign up? <a href="/login">Sign in here!</a></h4>
-      </form>
-      </section>
-</body>
+      </div>
+      <div>
+        <input
+          type="password"
+          id="password2"
+          name="password2"
+          required
+          placeholder=" "
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+        />
+        <label for="password2">Password confirmation</label>
+      </div>
+      <input type="submit" value="Sign Up" />
+      <h4>Already sign up? <a href="/login">Sign in here!</a></h4>
     </form>
   </body>
 </html>
