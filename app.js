@@ -2,6 +2,11 @@ const express = require("express");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
 const expressLayouts = require("express-ejs-layouts");
+const session = require("express-session");
+const flash = require("express-flash");
+const passport = require("passport");
+const initializePassport = require("./passportConfig");
+initializePassport(passport);
 
 const app = express();
 dotenv.config();
@@ -14,7 +19,16 @@ app.use(
     extended: true,
   })
 );
-
+//ssessions
+app.use(
+  session({
+    resave: false,
+    secret: "shh/its1asecret",
+    saveUninitialized: false,
+    //secure:false
+  })
+);
+app.use(flash());
 const PORT = process.env.PORT;
 
 /* Index - Home */
