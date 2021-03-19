@@ -8,5 +8,19 @@
   </head>
   <body>
     <h1>Heya im a home page</h1>
+    <form action="/create" method="POST" class="create_new_to_do">
+      <div>
+        <textarea
+          name="item_to_do"
+          rows="1"
+          cols="40"
+          required
+          placeholder=" "
+        ></textarea>
+        <label for="item_to_do">What do you want to do?</label>
+        <div class="requirements">What do you want?!</div>
+      </div>
+      <input type="submit" value="Create new task" />
+    </form>
   </body>
 </html>
