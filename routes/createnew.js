@@ -40,7 +40,7 @@ router.post("/", (req, res) => {
         throw err;
       } else {
         console.log(results.rows);
-        eq.flash("success_msg", "You added new item!");
+        req.flash("success_msg", "You added new item!");
         res.redirect("/");
       }
     }

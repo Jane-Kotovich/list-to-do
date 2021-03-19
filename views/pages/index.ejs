@@ -8,6 +8,11 @@
   </head>
   <body>
     <h1>Heya im a home page</h1>
+    <ul class="message_success">
+      <% if(messages.success_msg) { %>
+      <li><%= messages.success_msg %></li>
+      <% } %>
+    </ul>
     <form action="/create" method="POST" class="create_new_to_do">
       <div>
         <textarea
