@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "nodemon -e js,ejs,css,html app.js",
+    "create-database": "createdb to_do_list",
+    "create-tables": "psql jane -h localhost -d to_do_list -f sql/create_users_table.sql"
   },
   "author": "",
   "license": "ISC",

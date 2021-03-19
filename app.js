@@ -9,6 +9,11 @@ app.use(morgan("dev"));
 app.set("view engine", "ejs");
 app.use(expressLayouts);
 app.set("layout", "./layouts/full-width");
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
 
 const PORT = process.env.PORT;
 
