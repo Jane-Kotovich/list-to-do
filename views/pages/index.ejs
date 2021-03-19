@@ -13,6 +13,14 @@
       <li><%= messages.success_msg %></li>
       <% } %>
     </ul>
+        <% for (let i=0; i<allListToDo.length; i++){ %>
+           <li><%= allListToDo[i].item_to_do%></li>
+           <li><%= allListToDo[i].time_created%></li>
+           <li><%= allListToDo[i].date_created%></li>
+           <li><%= allListToDo[i].time_done%></li>
+           <li><%= allListToDo[i].date_done%></li>
+        <% }%>
+
     <form action="/create" method="POST" class="create_new_to_do">
       <div>
         <textarea
