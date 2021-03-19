@@ -1,0 +1,24 @@
+
+DROP TABLE IF EXISTS users;
+CREATE TABLE IF NOT EXISTS users (
+  user_id SERIAL PRIMARY KEY,
+  firstname VARCHAR(50) NOT NULL,
+  secondname VARCHAR(50) NOT NULL,
+  password VARCHAR(100) NOT NULL,
+  email VARCHAR(50) NOT NULL UNIQUE,
+  active BOOLEAN NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+DROP TABLE IF EXISTS list_to_do;
+CREATE TABLE IF NOT EXISTS ratings (
+  item_id SERIAL PRIMARY KEY,
+  user_id INT NOT NULL,
+  item_to_do TEXT,
+  done BOOLEAN NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  updated_at TIMESTAMPTZ,
+  CONSTRAINT fk_user
+    FOREIGN KEY(user_id)
+      REFERENCES users(user_id)
+);
