@@ -27,7 +27,7 @@ router.get("/", (req, res) => {
   res.redirect("/");
 });
 
-router.post("/", (req, res) => {
+router.post("/", checkNotAuthenticated, (req, res) => {
   const newItem = req.body.item_to_do;
   const itemDone = false;
   const userId = req.user.user_id;

@@ -72,6 +72,10 @@ app.use("/routes/signup", signupRouter);
 const emailConfRouter = require("./routes/email");
 app.use("/routes/email", emailConfRouter);
 
+/* Tick box  */
+const doneRouter = require("./routes/done");
+app.use("/routes/done", doneRouter);
+
 /* Run App */
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
@@ -82,3 +86,4 @@ app.use("/create", createnewRouter);
 app.use("/login", loginRouter);
 app.use("/signup", signupRouter);
 app.use("/email", emailConfRouter);
+app.use("/done", doneRouter);

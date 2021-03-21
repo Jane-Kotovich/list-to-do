@@ -21,7 +21,7 @@ app.use(
 
 router.get("/", (req, res) => {
   pool.query(
-    `SELECT list_to_do.item_to_do, users.firstname, users.secondname,list_to_do.done, TO_CHAR(list_to_do.created_at, 'DD-Month-YYYY') as date_created, TO_CHAR(list_to_do.created_at, 'HH:MI am') AS time_created,TO_CHAR(list_to_do.updated_at, 'DD-Month-YYYY') AS date_done, TO_CHAR(list_to_do.updated_at, 'HH:MI am') AS time_done FROM users JOIN list_to_do ON list_to_do.user_id=users.user_id ;`,
+    `SELECT list_to_do.item_to_do, users.firstname, list_to_do.item_id, users.secondname,list_to_do.done, TO_CHAR(list_to_do.created_at, 'DD-Month-YYYY') as date_created, TO_CHAR(list_to_do.created_at, 'HH:MI am') AS time_created,TO_CHAR(list_to_do.updated_at, 'DD-Month-YYYY') AS date_done, TO_CHAR(list_to_do.updated_at, 'HH:MI am') AS time_done FROM users JOIN list_to_do ON list_to_do.user_id=users.user_id ;`,
 
     (err, result) => {
       if (err) {
