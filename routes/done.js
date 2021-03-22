@@ -39,19 +39,20 @@ router.post("/", checkNotAuthenticated, (req, res) => {
         itemToTick,
       ])
       .then(() => {
-        console.log("it reached herer 333");
-        pool.query(`DELETE from list_to_do WHERE item_id = $1;`, [itemToTick]);
-      })
-      .catch(
-        (err) => {
-          return console.log("its error here!");
-        }
-        // res.status(404).render("pages/error", {
-        //   err: { message: "HTTP ERROR 404. This page can not be found" },
-        //   title: "Error ",
-        //   current_user: req.session.user,
-        // })
-      );
+        pool
+          .query(
+            `INSERT INTO list_done (user_id, item_to_do, done) (SELECT user_id, item_to_do, done FROM list_to_do WHERE item_id = $1)`,
+            [itemToTick]
+          )
+          .then(() => {
+            pool.query(`DELETE from list_to_do WHERE item_id = $1;`, [
+              itemToTick,
+            ]);
+          })
+          .catch((err) => {
+            return console.log("its error here!");
+          });
+      });
   }
   req.flash("success_msg", `Great job! you have done this!`);
   res.redirect("/");

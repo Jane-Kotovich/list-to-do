@@ -22,32 +22,22 @@
                 <th>Name & Surname</th>
                 <th>Time created</th>
                 <th>Date created</th>
-                <th>Time done</th>
-                <th>Date done</th>
-                
             </tr>
             <% for (let i=0; i<allListToDo.length; i++){ %>
             <tr>
-                <td><form action="/done" method="POST" class="form_tick_done"><input type="checkbox"  name="item_id" value="<%=allListToDo[i].item_id%>">
-                 
-                  
+                <td><form action="/done" method="POST" class="form_tick_done"><input type="checkbox"  name="item_id" value="<%=allListToDo[i].item_id%>"> 
                 </td>
                 <td><%= allListToDo[i].item_to_do%></td>
                 <td><%= allListToDo[i].firstname%> <%= allListToDo[i].secondname%></td>
                 <td><%= allListToDo[i].time_created%></td>
                 <td><%= allListToDo[i].date_created%></td>
-                <td><%= allListToDo[i].time_done%></td>
-                <td><%= allListToDo[i].date_done%></td>
-
-             
             </tr>
             <% }%>
-            
             </table>
             <button type="submit">Done</button>
           </form>
+        
           
-           
           
      
 
@@ -65,5 +55,29 @@
       </div>
       <input type="submit" value="Create new task" />
     </form>
+
+    <table>
+      <tr>
+      <th>Done</th>
+      <th>To-do thing</th>
+      <th>Name & Surname</th>
+      <th>Time done</th>
+      <th>Date done</th>
+      
+  </tr>
+  <% for (let i=0; i<itemsAlreadyDone.length; i++){ %>
+  <tr>
+      <td><input type="checkbox" checked> 
+      </td>  
+  </td>
+  <td><%= itemsAlreadyDone[i].item_to_do%></td>
+  <td><%= itemsAlreadyDone[i].firstname%> <%= itemsAlreadyDone[i].secondname%></td>
+  
+  <td><%= itemsAlreadyDone[i].time_done%></td>
+  <td><%= itemsAlreadyDone[i].date_done%></td>
+</tr>
+<% }%>
+</table>
+     
   </body>
 </html>

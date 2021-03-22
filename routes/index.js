@@ -27,11 +27,23 @@ router.get("/", (req, res) => {
       if (err) {
         throw err;
       } else {
-        console.log(result.rows);
-        const allListToDo = result.rows;
-        res.render("pages/index", {
-          allListToDo: allListToDo,
-        });
+        pool.query(
+          `SELECT list_done.item_to_do, users.firstname, list_done.item_id, users.secondname, list_done.done,TO_CHAR(list_done.updated_at, 'DD-Month-YYYY') AS date_done, TO_CHAR(list_done.updated_at, 'HH:MI am') AS time_done FROM users JOIN list_done ON list_done.user_id=users.user_id ; `,
+          (errors, doneQueryResults) => {
+            if (errors) {
+              throw errors;
+            } else {
+              console.log(result.rows);
+              console.log(doneQueryResults.rows);
+              const allListToDo = result.rows;
+              const itemsAlreadyDone = doneQueryResults.rows;
+              res.render("pages/index", {
+                allListToDo: allListToDo,
+                itemsAlreadyDone: itemsAlreadyDone,
+              });
+            }
+          }
+        );
       }
     }
   );

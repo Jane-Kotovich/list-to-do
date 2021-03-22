@@ -34,3 +34,15 @@ CREATE TABLE IF NOT EXISTS list_to_do (
     FOREIGN KEY(user_id)
       REFERENCES users(user_id)
 );
+
+DROP TABLE IF EXISTS list_done;
+CREATE TABLE IF NOT EXISTS list_done (
+  item_id SERIAL PRIMARY KEY,
+  user_id INT NOT NULL,
+  item_to_do TEXT,
+  done BOOLEAN NOT NULL,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW() ,
+  CONSTRAINT fk_user
+    FOREIGN KEY(user_id)
+      REFERENCES users(user_id)
+);
